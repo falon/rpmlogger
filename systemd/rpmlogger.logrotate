@@ -1,0 +1,11 @@
+/var/log/rpmlogger/rpm.log {
+        create
+        notifempty
+        nomail
+        noolddir
+        missingok
+        daily
+        size 1024M
+        compress
+}
+

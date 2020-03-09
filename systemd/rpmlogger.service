@@ -1,0 +1,12 @@
+[Unit]
+Description=Rpmlogger runner
+Wants=time-sync.target
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+ExecStart=/usr/bin/python /usr/bin/rpmlogger.py
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,27 @@
+## Rpmlogger config file
+
+Logging:
+  # Must be "syslog" or "file"
+  TYPE: 'syslog'
+  # Syslog Facility
+  SYSLOG_FAC: 'syslog'
+  # Minimum Log Level ('CRITICAL', 'ERROR', 'WARNING', 'INFO', 'DEBUG')
+  # Suggested: DEBUG or INFO
+  LOG_LEVEL: 'DEBUG'
+  # Syslog socket
+  SYSLOG_SOCKET: '/dev/log'
+  # File dir
+  LOGFILE_DIR: "/var/log/rpmlogger"
+  # File name
+  LOGFILE_NAME: "rpm.log"
+  # Log to stdout too (true/false)
+  # When you run on systemd, set to "false".
+  LOGSTDOUT: true
+  # Add a tag as a field in every log entry
+  TAG: 'systemforyou'
+
+Packages:
+  NAMES:
+    # - postfix
+    # - rsyslog
+
