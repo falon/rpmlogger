@@ -28,7 +28,7 @@ setup(
         'PyYAML>=5.2',
         'psutil'
     ],
-    python_requires='>=2.6',
+    python_requires='>=3.6',
     url='https://github.com/falon/rpmlogger',
     license='Apache License 2.0',
     author='Marco Favero',
