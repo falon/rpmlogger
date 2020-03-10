@@ -13,6 +13,13 @@ import psutil
 
 loggerName = 'rpmlog'
 
+def decode_if_bytes(element):
+    ''' before rpm 4.14.2 all headers were returned as bytes '''
+    if isinstance(element, bytes):
+        return element.decode('utf-8')
+    else:
+        return element
+
 def load_yaml(file, part):
      with open(file, 'r') as ymlfile:
          config_parameters = yaml.load(ymlfile, Loader=yaml.SafeLoader)[part]
@@ -114,8 +121,8 @@ for pkg in PKGS:
         build_date = datetime.datetime.fromtimestamp(h['BUILDTIME'])
         install_date = datetime.datetime.fromtimestamp(h['INSTALLTID'])
         log.info('name="{}" version="{}" release="{}" build_date="{:%c}" install_date="{:%c}" group="{}" license="{}" build_host="{}" packager="{}" vendor="{}" url="{}" summary="{}" tag="{}"'.format(
-            h['name'], h['version'], h['release'], build_date, install_date, h['group'], h['license'],
-            h['buildhost'], h['packager'], h['vendor'], h['url'], h['summary'], TAG))
+            decode_if_bytes(h['name']), decode_if_bytes(h['version']), decode_if_bytes(h['release']), build_date, install_date, decode_if_bytes(h['group']),
+            decode_if_bytes(h['license']), decode_if_bytes(h['buildhost']), decode_if_bytes(h['packager']), decode_if_bytes(h['vendor']), decode_if_bytes(h['url']), decode_if_bytes(h['summary']), TAG))
 
 ncpu = os.cpu_count()
 #print(platform.linux_distribution())

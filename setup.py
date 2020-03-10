@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='rpmlogger',
-    version='0.1.post1',
+    version='0.2',
     description='RPM Packages version reporter',
     long_description=long_description,
     long_description_content_type="text/markdown",

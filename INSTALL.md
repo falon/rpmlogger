@@ -27,13 +27,13 @@ Red Hat or Centos >=7 is required. The deployment requires systemd.
 If you are in a Red Hat 8 system, then
 
     curl -1sLf \
-      'https://dl.cloudsmith.io/public/csi/rpmlogger/cfg/setup/bash.rpm.sh' \
+      'https://dl.cloudsmith.io/public/csi/rpmlog/cfg/setup/bash.rpm.sh' \
       | sudo bash
     
 If you are in a Red Hat 7 system, then
 
     curl -1sLf \
-      'https://dl.cloudsmith.io/public/csi/rpmlogger/cfg/setup/bash.rpm.sh' \
+      'https://dl.cloudsmith.io/public/csi/rpmlog/cfg/setup/bash.rpm.sh' \
       | sudo distro=el codename=8 bash
 
 Finally:
@@ -44,7 +44,3 @@ With this installation all must work as is. The setup provides configuration,
  services and timers.
 
     systemctl enable rpmlogger.timer
-
-In EL8 remember to set the default python as
-
-    alternatives --set python /usr/bin/python3
