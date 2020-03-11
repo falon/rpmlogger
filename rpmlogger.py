@@ -120,7 +120,7 @@ for pkg in PKGS:
     for h in mi:
         build_date = datetime.datetime.fromtimestamp(h['BUILDTIME'])
         install_date = datetime.datetime.fromtimestamp(h['INSTALLTID'])
-        log.info('name="{}" version="{}" release="{}" build_date="{:%c}" install_date="{:%c}" group="{}" license="{}" build_host="{}" packager="{}" vendor="{}" url="{}" summary="{}" tag="{}"'.format(
+        log.info('name="{}" version="{}" release="{}" build_date="{:%c}" install_date="{:%c}" group="{}" license="{}" build_host="{}" packager="{}" vendor="{}" url="{}" summary="{}" tos="{}"'.format(
             decode_if_bytes(h['name']), decode_if_bytes(h['version']), decode_if_bytes(h['release']), build_date, install_date, decode_if_bytes(h['group']),
             decode_if_bytes(h['license']), decode_if_bytes(h['buildhost']), decode_if_bytes(h['packager']), decode_if_bytes(h['vendor']), decode_if_bytes(h['url']), decode_if_bytes(h['summary']), TAG))
 
@@ -133,8 +133,8 @@ try:
     interesting_fields = ['total']
     thishost['mem'] = ' '.join(['mem_{0}="{1}"'.format(k, getattr(this, k)) for k in interesting_fields])
 except psutil.Error:
-    log.info('{} ncpu="{}" tag="{}"'.format(thishost['plat'], ncpu, TAG))
+    log.info('{} ncpu="{}" tos="{}"'.format(thishost['plat'], ncpu, TAG))
     sys.exit(1)
 
-log.info('{} {} ncpu="{}" tag="{}"'.format(thishost['plat'], thishost['mem'], ncpu, TAG))
+log.info('{} {} ncpu="{}" tos="{}"'.format(thishost['plat'], thishost['mem'], ncpu, TAG))
 print("===================================")

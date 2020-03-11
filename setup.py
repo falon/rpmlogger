@@ -25,7 +25,7 @@ setup(
     ],
     install_requires=[
         'rpm>=0.2.0',
-        'PyYAML>=5.2',
+        'PyYAML',
         'psutil'
     ],
     python_requires='>=3.6',
